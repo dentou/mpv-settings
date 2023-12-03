@@ -57,6 +57,7 @@ local user_opts = {
     volumecontrol = true,       -- whether to show mute button and volumne slider
     keyboardnavigation = false, -- enable directional keyboard navigation
     chapter_fmt = "Chapter: %s", -- chapter print format for seekbar-hover. "no" to disable
+    bottomhover = false,   -- if the osc should only display when hover occurs at video elements on the bottom of the window. Adapted from https://github.com/cyl0/ModernX/issues/24
 }
 
 -- Icons for jump button depending on jumpamount 
@@ -2102,7 +2103,7 @@ function render()
     if not (state.showtime == nil) and (get_hidetimeout() >= 0) then
         local timeout = state.showtime + (get_hidetimeout()/1000) - now
         if timeout <= 0 then
-            if (state.active_element == nil) and not (mouse_over_osc) then
+            if (state.active_element == nil) and (user_opts.bottomhover or not (mouse_over_osc)) then
                 hide_osc()
             end
         else
@@ -2202,7 +2203,15 @@ function process_event(source, what)
                     or (math.abs(mouseY - state.last_mouseY) >= user_opts.minmousemove)
                 )
             ) then
-            show_osc()
+            if user_opts.bottomhover then -- if enabled, only show osc if mouse is hovering at the bottom of the screen (where the UI elements are)]
+                if (mouseY > osc_param.playresy - 200) then -- account for scaling options
+                    show_osc()
+                else
+                    hide_osc()
+                end
+            else
+                show_osc()
+            end
         end
         state.last_mouseX, state.last_mouseY = mouseX, mouseY
 
