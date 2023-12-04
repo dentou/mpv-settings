@@ -20,6 +20,8 @@ Here goes all information about scripts and upscaler used. (WIP)
 - [modernx fork by zydezu](https://github.com/zydezu/ModernX) - A modern OSC UI replacement for MPV that retains the functionality of the default OSC. 
 - quality-menu.lua - Allows you to change the streamed video and audio quality (ytdl-format) on the fly. Simply open the video or audio menu, select your prefered format and confirm your choice. The keybindings for opening the menus are configured in input.conf, and everthing else is configured in quality-menu.conf. By default: List Video Formats: F (shift+f), List Audio Formats: Alt+f, Reload: Ctrl+r
 - [thumbfast](https://github.com/po5/thumbfast)
+- [locatefile.lua](https://github.com/zydezu/mpvconfig/blob/main/scripts/locatefile.lua)
+- [SmartCopyPaste2](https://github.com/Eisa01/mpv-scripts)
 
 # Installation
 Depending on your Operating System, you need to place the stuff inside the zip in a certain directory.
