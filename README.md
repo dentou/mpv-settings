@@ -1,4 +1,7 @@
 # mpv-settings
+
+:warning: Outdated. Use https://github.com/dentou/mpv instead.
+
 my settings for MPV (Windows/Mac/Linux Compatible)
 
 might not be suitable for your pc, but if you have any recommendations, just tell me, 
